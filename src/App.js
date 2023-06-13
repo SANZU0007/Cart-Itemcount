@@ -64,7 +64,7 @@ function ProductCard({ productName, Productprice, cartCount, setCartCount }) {
     setShow(false);
     setCartCount(cartCount + 1);
   };
-
+sdkfn
   const handleRemoveBtn = () => {
     setShow(true);
     setCartCount(cartCount - 1);
@@ -77,7 +77,7 @@ function ProductCard({ productName, Productprice, cartCount, setCartCount }) {
         <h2>$ {Productprice}</h2>
       </div>
       {show ? (
-        <button onClick={handleAddBtn}>Add to Cart</button>
+        <button onClick={handleAddkjbbhibBtn}>Add to Cart</button>
       ) : (
         <button onClick={handleRemoveBtn}>Remove from Cart</button>
       )}
