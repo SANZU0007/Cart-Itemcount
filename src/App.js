@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FaRegThumbsUp  } from "react-icons/fa";
+
 
 const data = [
   {
@@ -19,24 +22,21 @@ const data = [
     productName: "DELL",
     Productprice: 5000,
     fancyproducts :"special item",
-    id: 1,
+    id: 2,
     
   },
   {
     productName: "DELL",
     Productprice: 5000,
     fancyproducts :"popuar item",
-    id: 1,
+    id: 3,
    
   },
   {
     productName: "DELL",
     Productprice: 5000,
     fancyproducts:"sale",
-
-    id: 1,
-   
-
+    id: 4,
   },
   {
     productName: "DELL",
@@ -53,9 +53,22 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <h1 className="design">Cart {cartCount}</h1>
+      <header>
+        <nav>
+        <span className="logo">shop</span>
+        <ul className="nav-list">
+          <li >Home</li>
+          <li>About</li>
+          <li>Shop</li>
+        </ul>
+        <button className="cart-count">  <FaRegThumbsUp /> Cart <span>{cartCount}</span></button>
+      </nav>
+      </header>
+      <div className="banner">
+        <h1>Shop in style</h1>
+        <h3>with this shop homepage template</h3>
       </div>
+        
       <div className="products">
         {data.map((prod, idx) => (
           <ProductCard
@@ -66,9 +79,15 @@ function App() {
             setCartCount={setCartCount}
             key={prod.id}
           />
+          
         ))}
+        
       </div>
+      <footer>
+        <p>copy right your webside 2023</p>
+      </footer>
     </div>
+   
   );
 }
 
@@ -94,9 +113,9 @@ function ProductCard({ productName, Productprice,fancyproducts, cartCount, setCa
         <h2>$ {Productprice}</h2>
       </div>
       {show ? (
-        <button onClick={handleAddBtn}>Add to Cart</button>
+        <button className="card-btn" onClick={handleAddBtn}>Add to Cart</button>
       ) : (
-        <button onClick={handleRemoveBtn}>Remove from Cart</button>
+        <button className="card-btn" onClick={handleRemoveBtn}>Remove from Cart</button>
       )}
     </div>
   );
