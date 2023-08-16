@@ -1,52 +1,81 @@
 import React, { useState } from "react";
 import "./App.css";
-
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaRegThumbsUp  } from "react-icons/fa";
-
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { FaRegThumbsUp } from "react-icons/fa";
 const data = [
   {
-    Productimage:
-      "https://th.bing.com/th/id/OIP.y_H4qR8ILFTsn6Ctft-VhwHaFt?w=234&h=181&c=7&r=0&o=5&pid=1.7",
-    productName: "DELL",
+    Productimage: "https://www.josalukkasonline.com/Media/original_jos-alukkas-Gold-Earring--JAOV1C-nfkL.png",
+    productName: "Gold",
     Productprice: 5000,
-    
-    fancyproducts :"fancy item",
-    id:1,
+    fancyproducts: "limited edition",
+    id: 1,
   },
   {
-    Productimage:
-      "https://th.bing.com/th/id/OIP.y_H4qR8ILFTsn6Ctft-VhwHaFt?w=234&h=181&c=7&r=0&o=5&pid=1.7",
-    productName: "DELL",
+    Productimage: "https://5.imimg.com/data5/ED/FJ/MY-25145439/png-top0007602-vertical-mani-tops-500x500.png",
+    productName: "Gold",
     Productprice: 5000,
-    fancyproducts :"special item",
+    fancyproducts: "avilable",
     id: 2,
-    
   },
   {
-    productName: "DELL",
+    Productimage: "https://5.imimg.com/data5/OE/IV/MY-25145439/fancy-zumke.png",
+    productName: "Gold",
     Productprice: 5000,
-    fancyproducts :"popuar item",
+    fancyproducts: "popular item",
     id: 3,
-   
   },
   {
-    productName: "DELL",
-    Productprice: 5000,
-    fancyproducts:"sale",
+    Productimage:" https://www.canmorecrossing.ca/wp-content/uploads/2023/05/gold-jhumka-332zvr-1.jpg",
+    productName: "Gold",
+    Productprice: 3000,
+    fancyproducts: "No stack",
     id: 4,
   },
   {
-    productName: "DELL",
-    Productprice: 5000,
-    fancyproducts :"offer",
-    id: 1,
-  
+    Productimage: "https://cdn1.jewelxy.com/live/img/business_product/300x300/SjBMUrF9T6_20220624155047.jpg",
+    productName: "Gold",
+    Productprice: 4000,
+    fancyproducts: "No stack",
+    id: 5,
   },
-  // ...rest of the data array
+  {
+    Productimage: "https://admin.pngadgil1832.com/UploadedFiles/ProductImages/ER14854939PNG_01.png",
+    productName: "Gold",
+    Productprice: 2000,
+    fancyproducts: "No stack",
+    id: 6,
+  },
+  {
+    Productimage: "https://5.imimg.com/data5/ED/FJ/MY-25145439/png-top0007602-vertical-mani-tops-500x500.png",
+    productName: "Gold",
+    Productprice: 5000,
+    fancyproducts: "avilable",
+    id: 2,
+  },
+  {
+    Productimage: "https://5.imimg.com/data5/ED/FJ/MY-25145439/png-top0007602-vertical-mani-tops-500x500.png",
+
+  productName: "Gold",
+    Productprice: 5000,
+    fancyproducts: "avilable",
+    id: 2,
+  },
+  {
+    Productimage: "https://5.imimg.com/data5/ED/FJ/MY-25145439/png-top0007602-vertical-mani-tops-500x500.png",
+    productName: "Gold",
+    Productprice: 5000,
+    fancyproducts: "avilable",
+    id: 2,
+  },
+  {
+    Productimage: " https://5.imimg.com/data5/ED/FJ/MY-25145439/png-top0007602-vertical-mani-tops-500x500.png",
+    productName: "Gold",
+    Productprice: 5000,
+    fancyproducts: "avilable",
+    id: 2,
+  },
 ];
+
 
 function App() {
   const [cartCount, setCartCount] = useState(0);
@@ -54,44 +83,51 @@ function App() {
   return (
     <div className="App">
       <header>
-        <nav>
-        <span className="logo">shop</span>
-        <ul className="nav-list">
-          <li >Home</li>
-          <li>About</li>
-          <li>Shop</li>
-        </ul>
-        <button className="cart-count">  <FaRegThumbsUp /> Cart <span>{cartCount}</span></button>
-      </nav>
+        <nav className="navbar">
+          <span className="logo">shop</span>
+          <ul className="nav-list">
+            <li>Home</li>
+            <li>About</li>
+            <li>Shop</li>
+          </ul>
+          <button className="cart-count">
+            <FaRegThumbsUp /> Cart <span>{cartCount}</span>
+          </button>
+        </nav>
       </header>
       <div className="banner">
-        <h1>Shop in style</h1>
-        <h3>with this shop homepage template</h3>
+        <p>Shop in style</p>
+        <p>with this shop homepage template</p>
       </div>
-        
+
       <div className="products">
         {data.map((prod, idx) => (
           <ProductCard
+            Productimage={prod.Productimage}
             productName={prod.productName}
             Productprice={prod.Productprice}
-            fancyproducts ={prod.fancyproducts}
+            fancyproducts={prod.fancyproducts}
             cartCount={cartCount}
             setCartCount={setCartCount}
             key={prod.id}
           />
-          
         ))}
-        
       </div>
       <footer>
-        <p>copy right your webside 2023</p>
+        <p>copyright your website 2023</p>
       </footer>
     </div>
-   
   );
 }
 
-function ProductCard({ productName, Productprice,fancyproducts, cartCount, setCartCount }) {
+function ProductCard({
+  Productimage,
+  productName,
+  Productprice,
+  fancyproducts,
+  cartCount,
+  setCartCount,
+}) {
   const [show, setShow] = useState(true);
 
   const handleAddBtn = () => {
@@ -107,16 +143,21 @@ function ProductCard({ productName, Productprice,fancyproducts, cartCount, setCa
   return (
     <div className="card">
       <div>
-        <h3>{productName}</h3>
+        <img src={Productimage} alt=""></img>
         
-        <h1 className="fancy">{fancyproducts}</h1>
-        <h2>$ {Productprice}</h2>
+        <p>{productName}</p>
+        <p className="fancy">{fancyproducts}</p>
+        <p>$ {Productprice}</p>
       </div>
       {show ? (
-        <button className="card-btn" onClick={handleAddBtn}>Add to Cart</button>
+        <button className="card-btn" onClick={handleAddBtn}>
+          Add to Cart
+        </button>
       ) : (
-        <button className="card-btn" onClick={handleRemoveBtn}>Remove from Cart</button>
-      )}
+        <button className="card-btn" onClick={handleRemoveBtn}>
+          Remove from Cart
+        </button>
+      )}   
     </div>
   );
 }
